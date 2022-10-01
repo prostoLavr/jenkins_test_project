@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage("Say Hello"){
             steps {
-                eval 'ssh lawrence@lava-land.ru "echo Hello World"'
+                sh 'ssh lawrence@lava-land.ru "echo Hello World"'
             }
         }
     }
