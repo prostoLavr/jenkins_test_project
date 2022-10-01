@@ -1,0 +1,25 @@
+#!groovy
+
+properties([disableConcurrentBuilds()])
+
+pipeline {
+    agent any 
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '5', artifactNumToKeepStr: '5'))
+        timestamps()
+    }
+    stages {
+        stage("Build hello image"){
+            steps {
+                dir('docker_hello'){
+                    sh 'docker build -t say_hello .'
+                }
+            }
+        }
+        stage("Run hello image"){
+            steps {
+                sh 'docker run say_hello'
+            }
+        }
+    }
+}
