@@ -11,7 +11,7 @@ pipeline {
         timestamps()
     }
     stages {
-        state("Say Hello"){
+        stage("Say Hello"){
             steps {
                 'ssh lawrence@lava-land.ru "echo Hello World"'
             }
