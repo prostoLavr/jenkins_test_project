@@ -8,6 +8,9 @@ pipeline {
         buildDiscarder(logRotator(numToKeepStr: '5', artifactNumToKeepStr: '5'))
         timestamps()
     }
+    triggers {
+        pullSCM('*****')
+    }
     stages {
         stage("Build hello image"){
             steps {
