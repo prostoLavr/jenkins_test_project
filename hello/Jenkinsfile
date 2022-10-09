@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage("Say Hello"){
             steps {
-                sh 'ssh lawrence@lava-land.ru "echo Hello World"'
+                sh "echo 'Hello World'"
             }
         }
     }
