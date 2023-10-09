@@ -1,0 +1,28 @@
+#!groovy
+
+properties([disableConcurrentBuilds()])
+def agentLabel
+if (env.GIT_BRANCH == "release"){
+    agentLabel = "prod"
+} else {
+    agentLabel = "phys"
+}
+
+pipeline {
+    agent { label agentLabel }
+    options {
+        timestamps()
+    }
+    stages {
+        stage("Echo server"){
+            steps {
+                echo agentLabel
+            }
+        }
+        stage("Say Hello"){
+            steps {
+                echo 'Hello World'
+            }
+        }
+    }
+}
