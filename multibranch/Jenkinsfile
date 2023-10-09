@@ -2,8 +2,8 @@
 
 properties([disableConcurrentBuilds()])
 def agentLabel
-echo env.GIT_BRANCH
-if (env.GIT_BRANCH == "release"){
+echo env.BRANCH_NAME
+if (env.BRANCH_NAME == "release"){
     agentLabel = "prod"
 } else {
     agentLabel = "phys"
